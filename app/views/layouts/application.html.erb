@@ -33,7 +33,9 @@
               <li><p class="navbar-text">Hi, <%= current_user.email %></p></li>
               <li><%= link_to('Log out', destroy_user_session_path, method: :delete) %></li>
               <li><%= link_to('Edit Profile', edit_user_registration_path) %></li>
+              <li>你的 API Token：<code><%= current_user.authentication_token  %></code></li>
               <% else %>
+              <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
               <li><%= link_to('Sign up', new_user_registration_path) %></li>
               <li><%= link_to('Log in', new_user_session_path) %></li>
               <% end %>
